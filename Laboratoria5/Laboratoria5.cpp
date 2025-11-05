@@ -6,6 +6,9 @@ void wypisanie(int tab[],float srednia);
 int znajdz_max(int tab[]);
 int znajdz_min(int tab[]);
 void wypisaniemacierzy(vector<vector<int>>& macierz, int wiersz, int kolumna);
+void wprowadzanieniemacierzy(vector<vector<int>>& macierz, int wiersz, int kolumna);
+void sumowaniemacierzy(vector<vector<int>>& macierz1, vector<vector<int>>& macierz2, vector<vector<int>>& macierz3, int rozmiar);
+void mnozeniemacierzy(vector<vector<int>>& macierz1, vector<vector<int>>& macierz2, vector<vector<int>>& macierz3, int rozmiar);
 int main()
 {
 	/*int tab[10];	//zad 1
@@ -59,7 +62,7 @@ int main()
 	}
 	wypisaniemacierzy(macierz, wiersz, kolumna);*/
 
-	int tablica[10];					//zad 5
+	/*int tablica[10];					//zad 5
 	int liczba = 0;
 	cout << "ile liczb z zakresu od 0 do 10 chcesz podac (max 10): ";
 	cin >> liczba;
@@ -78,8 +81,55 @@ int main()
 	}
 	cout << "srednia liczb na tej tablicy = " << srednia(tablica) << endl;
 	cout << "Max: " << znajdz_max(tablica) << endl;
-	cout << "Min: " << znajdz_min(tablica) << endl;
+	cout << "Min: " << znajdz_min(tablica) << endl;*/
+
+
+	/*int tablica[10];					//zad 6	
+	srand(time(NULL));
+	for (int i = 0; i < 10; i++) {
+		tablica[i] = rand() % 11 ;		//losowanie liczb z zakresu 0 do 10
+	}
+	int szczesliwa_liczba= rand() % 11 ;
+	int licznik = 0;
+	for (int i= 0;i<=9;i++) {
+		if(tablica[i]== szczesliwa_liczba) {
+			licznik++;
+		}
+	}
+	cout << "Szczesliwa liczba to: " << szczesliwa_liczba << " i zostala wylosowana " << licznik << " razy" << endl;*/
+
+	/*int rozmiar;							//zad 7
+	cout << "Podaj rozmiar macierzy: ";
+	cin >> rozmiar;
+	vector<vector<int>> macierz1(rozmiar, vector<int>(rozmiar));
+	vector<vector<int>> macierz2(rozmiar, vector<int>(rozmiar));
+	vector<vector<int>> macierz3(rozmiar, vector<int>(rozmiar));
+	cout << "Wprowadz elementy pierwszej macierzy: " << endl;
+	wprowadzanieniemacierzy(macierz1, rozmiar, rozmiar);
+	cout << "Wprowadz elementy drugiej macierzy: " << endl;
+	wprowadzanieniemacierzy(macierz2, rozmiar, rozmiar);	
+	sumowaniemacierzy(macierz1, macierz2, macierz3, rozmiar);
+	cout << "Macierz wynikowa to: " << endl;
+	wypisaniemacierzy(macierz3, rozmiar, rozmiar);	*/
+
+/*int rozmiar;							//zad 8
+cout << "Podaj rozmiar macierzy: ";
+cin >> rozmiar;
+vector<vector<int>> macierz1(rozmiar, vector<int>(rozmiar));
+vector<vector<int>> macierz2(rozmiar, vector<int>(rozmiar));
+vector<vector<int>> macierz3(rozmiar, vector<int>(rozmiar));
+cout << "Wprowadz elementy pierwszej macierzy: " << endl;
+wprowadzanieniemacierzy(macierz1, rozmiar, rozmiar);
+cout << "Wprowadz elementy drugiej macierzy: " << endl;
+wprowadzanieniemacierzy(macierz2, rozmiar, rozmiar);
+mnozeniemacierzy(macierz1, macierz2, macierz3, rozmiar);
+cout << "Macierz wynikowa to: " << endl;
+wypisaniemacierzy(macierz3, rozmiar, rozmiar);*/
+
 }
+
+
+
 float srednia(int tab[]) {
 	float srednia = 0;
 	for (int i = 0; i <= 9; i++) {
@@ -126,4 +176,27 @@ void wypisaniemacierzy(vector<vector<int>>& macierz, int wiersz, int kolumna){
 		}
 		cout << endl;
 	}
+}
+void wprowadzanieniemacierzy(vector<vector<int>>& macierz, int wiersz, int kolumna) {
+	for (int i = 0; i < wiersz; i++) {
+		for (int j = 0; j < kolumna; j++) {
+			cout << "Podaj element macierzy w miejscu [" << i << "][" << j << "]: ";
+			cin >> macierz[i][j];
+		}
+	}
+}
+void sumowaniemacierzy(vector<vector<int>>& macierz1, vector<vector<int>>& macierz2, vector<vector<int>>& macierz3, int rozmiar){
+	for (int i = 0; i < rozmiar; i++) {
+		for (int j = 0; j < rozmiar; j++) {
+			macierz3[i][j] = macierz1[i][j] + macierz2[i][j];
+		}
+	}
+}
+
+void mnozeniemacierzy(vector<vector<int>>& macierz1, vector<vector<int>>& macierz2, vector<vector<int>>& macierz3, int rozmiar){
+	for (int i = 0; i < rozmiar; i++) {
+		for (int j = 0; j < rozmiar; j++) {
+			macierz3[i][j] = macierz1[i][j] * macierz2[i][j];
+		}
+}
 }
