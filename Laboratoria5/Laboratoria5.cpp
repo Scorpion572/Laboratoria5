@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
 using namespace std;
-int srednia(int tab[]);
+float srednia(int tab[]);
 void wypisanie(int tab[],float srednia);
 int znajdz_max(int tab[]);
 int znajdz_min(int tab[]);
@@ -44,7 +44,7 @@ int main()
 	cout << "Max: " << znajdz_max(tab) << endl;
 	cout << "Min: " << znajdz_min(tab) << endl;*/
 
-	int wiersz, kolumna;									//zad 4
+/*	int wiersz, kolumna;									//zad 4
 	cout << "Podaj liczbe wierszy: ";
 	cin >> wiersz;	
 	cout << "Podaj liczbe kolumn: ";	
@@ -57,9 +57,30 @@ int main()
 		}
 		 
 	}
-	wypisaniemacierzy(macierz, wiersz, kolumna);
+	wypisaniemacierzy(macierz, wiersz, kolumna);*/
+
+	int tablica[10];					//zad 5
+	int liczba = 0;
+	cout << "ile liczb z zakresu od 0 do 10 chcesz podac (max 10): ";
+	cin >> liczba;
+	if (liczba <= 10 && liczba >= 0) {
+		for(int i = 0; i < liczba; i++) {
+			cout << "Podaj " << i+1 << " liczbe: \n";
+			cin >> tablica[i];
+		}
+		for(int i = liczba; i < 10; i++) {
+			tablica[i] = 0;
+		}
+	}
+	
+	else {
+		cout << "podana liczba nie jest w zakresie 0-10" << endl;
+	}
+	cout << "srednia liczb na tej tablicy = " << srednia(tablica) << endl;
+	cout << "Max: " << znajdz_max(tablica) << endl;
+	cout << "Min: " << znajdz_min(tablica) << endl;
 }
-int srednia(int tab[]) {
+float srednia(int tab[]) {
 	float srednia = 0;
 	for (int i = 0; i <= 9; i++) {
 		srednia = tab[i] + srednia;
